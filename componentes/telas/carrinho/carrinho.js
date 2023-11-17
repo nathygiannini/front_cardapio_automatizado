@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, FlatList, Image, StyleSheet, TouchableOpacity, onPress} from 'react-native';
 
+import cc_quente from '../../imagens/cachorro-quente.jpg';
+import pastel from '../../imagens/pastel.jpg';
 
 
 const Carrinho = () => {
   const [cartItems, setCartItems] = useState([
-    { id: '1', name: 'Pastel de carne e queijo', price: 10, quantity: 2, description: 'Carne moída e queijo', image: require('./pastel.jpg') },
-    { id: '2', name: 'Cachorro quente', price: 15, quantity: 1, description: 'pão, salsicha, milho e batata palha', image: require('./cachorro-quente.jpg') },
-    { id: '3', name: 'Pastel presunto e queijo', price: 10, quantity: 4, description: 'presunto e queijo', image: require('./pastel.jpg') },
+    { id: '1', name: 'Pastel de carne e queijo', price: 10, quantity: 2, description: 'Carne moída e queijo', image: pastel },
+    { id: '2', name: 'Cachorro quente', price: 15, quantity: 1, description: 'pão, salsicha, milho e batata palha', image: cc_quente },
+    { id: '3', name: 'Pastel presunto e queijo', price: 10, quantity: 4, description: 'presunto e queijo', image: pastel },
     // Adicione mais produtos aqui
   ]);
 
@@ -60,7 +62,7 @@ const Carrinho = () => {
        <TouchableOpacity style={styles.butfinal} onPress={clearCart}>
         <Text>Limpar Carrinho</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.butfinal} onPress={onPress}>
+      <TouchableOpacity style={styles.butfinal} onPress={()=>{}}>
         <Text>Finalizar Compra</Text>
       </TouchableOpacity>
     </View>
