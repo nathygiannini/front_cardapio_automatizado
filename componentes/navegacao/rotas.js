@@ -11,6 +11,7 @@ import Menu from '../telas/venda/venda';
 
 
 
+
 const Stack = createNativeStackNavigator();
 
 function Rotas() {
@@ -22,6 +23,8 @@ function Rotas() {
                 <Stack.Screen name="Carrinho" component={Carrinho} options={{ title: 'Carrinho' }} />
                 <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ title: 'Login' }} />
                 <Stack.Screen name="Menu" component={Menu} options={{ title: 'Menu' }} />
+                
+              
                 
             </Stack.Navigator>
         </NavigationContainer>

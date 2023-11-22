@@ -3,7 +3,7 @@ import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react
 import { SearchBar } from 'react-native-elements';
 import logo from '../../imagens/logothermas.jpg';
 
-const espetinho = () => {
+const bebidas = () => {
   const [quantidade, setQuantidade] = useState(0);
 
   const adicionar = () => {
@@ -16,32 +16,32 @@ const espetinho = () => {
     }
   }
 
-  const [espetinhoItems, setEspetinhoItems] = useState([
-    { id: 1, name: 'COCA-COLA', description: ' LATA 350ML', price: 'R$ 7.00',quantity: 0 },
-    { id: 4, name: 'BRAHMA ZERO', description: ' LATA 350 ML', price: 'R$ 8.00',quantity: 0  },
-    { id: 10, name: 'ÁGUA SEM GÁS', description: ' GARRAFA 510 ML', price: 'R$ 4.00',quantity: 0  },
-    { id: 11, name: 'ÁGUA COM GÁS', description: ' GARRAFA 510 ML', price: 'R$4.00 ',quantity: 0  },
-    { id: 12, name: 'ÁGUA TÔNICA', description: ' LATA 350ML', price: 'R$ 7.00',quantity: 0  },
-    { id: 26, name: 'CHÁ MATE', description: ' GARRAFA', price: 'R$ 6.00',quantity: 0  },
-    { id: 297, name: 'Polenta Frita', description: 'Porção', price: 'R$ 19.00',quantity: 0  },
-    { id: 436, name: 'Risólis', description: 'Presunto e Queijo', price: 'R$9.80' ,quantity: 0 },
-    { id: 437, name: 'Fogaça', description: 'Calabresa', price: 'R$ 9.80',quantity: 0  },
-    { id: 469, name: 'Batata Frita', description: 'Porção', price: 'R$ 25.00' ,quantity: 0 },
-    { id: 508, name: 'Bolo', description: 'Pedaço', price: 'R$ 1.50',quantity: 0  },
-    { id: 551, name: 'Raquete de Frango', description: 'Porção', price: 'R$ 35.00',quantity: 0  },
-    { id: 552, name: 'Kibe', description: 'Porção', price: 'R$ 30.00',quantity: 0  },
-    { id: 557, name: 'Tempurá de Frango', description: 'Porção', price: 'R$ 30.00',quantity: 0  },
-    { id: 561, name: 'Tirinha de Frango', description: 'Porção', price: 'R$ 30.00' ,quantity: 0 },
+  const [bebidasItems, setbebidasItems] = useState([
+    { id: 1, name: 'BRAHMA', description: ' LATA 350ML', price: 'R$ 8,00',quantity: 0 },
+    { id: 4, name: 'HEINEKEN', description: ' LATA 350 ML', price: 'R$ 12,00',quantity: 0  },
+    { id: 10, name: 'SKOL', description: '  LATA 350 ML', price: 'R$8,00',quantity: 0  },
+    { id: 11, name: 'ORIGINAL', description: ' - LATA 350 ML', price: 'R$8,00 ',quantity: 0  },
+    { id: 12, name: 'DRINK NA TAÇA', description: '', price: 'R$ 35,00',quantity: 0  },
+    { id: 26, name: ' VELHO BARREIRO', description: ' DOSE', price: 'R$7,00',quantity: 0  },
+    { id: 297, name: ' GIN ', description: 'DOSE', price: 'R$13,00',quantity: 0  },
+    { id: 436, name: ' VODKA', description: 'DOSE', price: '13,00' ,quantity: 0 },
+    { id: 437, name: 'CAIPIRINHA DE CACHAÇA', description: '', price: 'R$ 15,00',quantity: 0  },
+    { id: 469, name: 'CAIPIRINHA VODKA', description: '', price: 'R$ 22,00' ,quantity: 0 },
+    { id: 508, name: 'GUARANÁ', description: ' LATA 350ML', price: 'R$ 7,00',quantity: 0  },
+    { id: 551, name: 'GUARANÁ', description: 'ARRAFA 200 ML', price: 'R$ 4,00',quantity: 0  },
+    { id: 552, name: 'CAIPICERVA BRAHMA', description: '', price: 'R$ 20,00',quantity: 0  },
+    { id: 557, name: 'CAIPICERVA SKOL', description: '', price: 'R$ 20,00',quantity: 0  },
+    { id: 561, name: 'GIN TÔNICA', description: ' GARRAFA 500ML', price: 'R$7,00' ,quantity: 0 },
   ]);
 
   const updateQuantity = (id, newQuantity) => {
-    const updatedEspetinhoItems = espetinhoItems.map(item => {
+    const updatedBebidasItems = bebidasItems.map(item => {
       if (item.id === id) {
         return { ...item, quantity: newQuantity };
       }
       return item;
     });
-    setEspetinhoItems(updatedEspetinhoItems);
+    setBebidasItems(updatedBebidasItems);
   };
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -50,12 +50,12 @@ const espetinho = () => {
     setSearchQuery(text);
   };
 
-  const filteredMenuItems = menuItems.filter((item) =>
+  const filteredBebidasItems = bebidasItems.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const renderMenuItem = ({ item }) => (
-    <View style={styles.menuItem}>
+  const renderBebidasItem = ({ item }) => (
+    <View style={styles.bebidasItem}>
       <Text style={styles.itemName}>{item.name}</Text>
       <Text style={styles.itemDescription}>{item.description}</Text>
       <Text style={styles.itemPrice}>{item.price}</Text>
@@ -90,8 +90,8 @@ const espetinho = () => {
       />
 
       <FlatList
-        data={filteredMenuItems}
-        renderItem={renderMenuItem}
+        data={filteredBebidasItems}
+        renderItem={renderBebidasItem}
         keyExtractor={(item) => item.id.toString()}
       />
 
@@ -196,4 +196,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default espetinho;
+export default bebidas;
