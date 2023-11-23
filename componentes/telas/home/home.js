@@ -13,22 +13,24 @@ import imgTemp from '../../imagens/temp.png';
 
 const HomeScreen = () => {
     return (
-        <View style={styles.container}>
-            {/* 
+        <View style={styles.container}>            
             <ImageBackground
                 style={{
                     ...styles.topContainer,
-                    paddingVertical: 30,
+                    width: '300%',
+                    height: '160%', // ou outra porcentagem ou valor fixo desejado
+                    backgroundColor: '#22547E',
                 }}
-                source={logo}
-            > */}
+                // Resto do código
+            />
+
             <Image
                 source={logo}
                 style={styles.imagem}
             />
 
             <TouchableOpacity
-                // style={{ ...styles.botao, width: 150 }}
+                style={{ ...styles.botao, width: 150 }}
                 onPress={() => {
                     // Botao login
                 }}>
@@ -36,7 +38,7 @@ const HomeScreen = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-                // style={{ ...styles.botao, width: 150 }}
+                style={{ ...styles.botao, width: 150 }}
                 onPress={() => {
                     // Botao login
                 }}>
@@ -46,15 +48,15 @@ const HomeScreen = () => {
             <View style={{ alignItems: 'center' }}>
                 <Image
                     source={imgTemp}
-                    // style={styles.imgdabarraca}
+                    //style={styles.imgdabarraca}
                 />
                 <Text style={styles.textobarracas}>SALGADOS</Text>
                 <TouchableOpacity
-                    // style={styles.botao}
+                    style={styles.botao}
                     onPress={() => {
                         // Navegar para a tela de restaurantes ou outras ações
                     }}>
-                    <Text style={styles.texto}>Acessar cardápio</Text>
+                    <Text style={styles.botao}>Acessar cardápio</Text>
                 </TouchableOpacity>
 
 
@@ -64,7 +66,7 @@ const HomeScreen = () => {
                 />
                 <Text style={styles.textobarracas}>ESPETINHO DE OURO</Text>
                 <TouchableOpacity
-                    // style={styles.botao}
+                    style={styles.botao}
                     onPress={() => {
                         // Navegar para a tela de restaurantes ou outras ações
                     }}>
@@ -77,7 +79,7 @@ const HomeScreen = () => {
                 />
                 <Text style={styles.textobarracas}>NÃO ALCOOLICOS</Text>
                 <TouchableOpacity
-                    // style={styles.botao}
+                    style={styles.botao}
                     onPress={() => {
                         // Navegar para a tela de restaurantes ou outras ações
                     }}>
@@ -90,7 +92,7 @@ const HomeScreen = () => {
                 />
                 <Text style={styles.textobarracas}>ALCOOLICOS</Text>
                 <TouchableOpacity
-                    // style={styles.botao}
+                    style={styles.botao}
                     onPress={() => {
                         // Navegar para a tela de restaurantes ou outras ações
                     }}>
@@ -98,10 +100,7 @@ const HomeScreen = () => {
                 </TouchableOpacity>
             </View>
 
-            {/* </ImageBackground> */}
-            <View>
-                <Text>Rodapéééééééé</Text>
-            </View>
+          
         </View>
     );
 };
@@ -110,18 +109,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#22547E',
-        justifyContent: 'center',        
-        alignItems: 'center', 
-        // paddingHorizontal: 20, 
-        marginTop: 800
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     topContainer: {
         backgroundColor: '#22547E',
         justifyContent: 'center',
         flexDirection: 'row',
-        // justifyContent: 'space-between',
-        paddingTop: 50
-    },
+        paddingTop: 50,
+        width: '100%', // Ocupa toda a largura
+        height: 'auto', // Altura automática conforme o conteúdo
+    },    
     botao: {
         backgroundColor: '#FFDD00', // opcoes de barracas
         paddingVertical: 8,
@@ -131,6 +129,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         alignItems: 'center',
+        marginTop: 10, // Ajuste a margem superior conforme necessário
     },
     texto: {
         fontWeight: 'bold',
@@ -154,8 +153,8 @@ const styles = StyleSheet.create({
     }, 
     imagem: {
         width: 400,
-        resizeMode: 'center',
-        height: 270,
+        //resizeMode: 'cover',
+        height: 300,
         backgroundColor: '#22547E'
     },
 });
