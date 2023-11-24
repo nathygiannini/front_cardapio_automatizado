@@ -1,162 +1,167 @@
-import {
-    View,
-    Text,
-    StyleSheet,
-    Image,
-    TouchableOpacity,
-    ImageBackground,
-    ScrollView,
-} from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import logo from '../../imagens/logothermas.jpg'
 
-import logo from '../../imagens/logothermas.jpg';
-import imgTemp from '../../imagens/temp.png';
-
-const HomeScreen = () => {
-    return (
-        <View style={styles.container}>            
-            <ImageBackground
-                style={{
-                    ...styles.topContainer,
-                    width: '300%',
-                    height: '160%', // ou outra porcentagem ou valor fixo desejado
-                    backgroundColor: '#22547E',
-                }}
-                // Resto do código
-            />
-
-            <Image
-                source={logo}
-                style={styles.imagem}
-            />
-
-            <TouchableOpacity
-                style={{ ...styles.botao, width: 150 }}
-                onPress={() => {
-                    // Botao login
-                }}>
-                <Text style={styles.texto}>Entrar</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-                style={{ ...styles.botao, width: 150 }}
-                onPress={() => {
-                    // Botao login
-                }}>
-                <Text style={styles.texto}>Cadastro</Text>
-            </TouchableOpacity>
-
-            <View style={{ alignItems: 'center' }}>
-                <Image
-                    source={imgTemp}
-                    //style={styles.imgdabarraca}
-                />
-                <Text style={styles.textobarracas}>SALGADOS</Text>
-                <TouchableOpacity
-                    style={styles.botao}
-                    onPress={() => {
-                        // Navegar para a tela de restaurantes ou outras ações
-                    }}>
-                    <Text style={styles.botao}>Acessar cardápio</Text>
-                </TouchableOpacity>
+import imgAlcoolicas from '../../imagens/alcoolicas.avif';
+import imgEspetinho from '../../imagens/espetinhos.jpg';
+import imgNalcool from '../../imagens/refrigerantes.jpg';
+import imgSalgados from '../../imagens/salgados.webp';
+import imgSorvetes from '../../imagens/sorvete.webp';
 
 
-                <Image
-                    source={imgTemp}
-                    style={styles.imgdabarraca}
-                />
-                <Text style={styles.textobarracas}>ESPETINHO DE OURO</Text>
-                <TouchableOpacity
-                    style={styles.botao}
-                    onPress={() => {
-                        // Navegar para a tela de restaurantes ou outras ações
-                    }}>
-                    <Text style={styles.texto}>Acessar cardápio</Text>
-                </TouchableOpacity>
+const CardapioScreen = ({ navigation }) => {
+  const navigateToCardapio = (tipoCardapio) => {
+    // Adicione a navegação para as telas de cardápio específicas
+    // Por exemplo, navigation.navigate('CardapioSalgados') para o cardápio de salgados
+    console.log(`Acessando cardápio de ${tipoCardapio}`);
+  };
 
-                <Image
-                    source={imgTemp}
-                    style={styles.imgdabarraca}
-                />
-                <Text style={styles.textobarracas}>NÃO ALCOOLICOS</Text>
-                <TouchableOpacity
-                    style={styles.botao}
-                    onPress={() => {
-                        // Navegar para a tela de restaurantes ou outras ações
-                    }}>
-                    <Text style={styles.texto}>Acessar cardápio</Text>
-                </TouchableOpacity>
+  const renderImagem = (tipoCardapio) => {
+    switch (tipoCardapio) {
+      case 'Preço Geral Salgados':
+        return imgSalgados;
+      case 'Espetos de Ouro':
+        return imgEspetinho;
+      case 'Preço Geral Alcoolicas':
+        return imgAlcoolicas;
+        case 'Preço Geral Não Alcoolicos':
+         return imgNalcool;
+         case 'Tayro':
+         return imgSorvetes;
+      // Adicione mais casos conforme necessário para outros tipos de cardápios
+      default:
+        return null;
+    }
+  };
 
-                <Image
-                    source={imgTemp}
-                    style={styles.imgdabarraca}
-                />
-                <Text style={styles.textobarracas}>ALCOOLICOS</Text>
-                <TouchableOpacity
-                    style={styles.botao}
-                    onPress={() => {
-                        // Navegar para a tela de restaurantes ou outras ações
-                    }}>
-                    <Text style={styles.texto}>Acessar cardápio</Text>
-                </TouchableOpacity>
-            </View>
+  return (
+    <View style={styles.container}>
+      <View style={styles.rowContainer}>
+        <TouchableOpacity style={styles.botaoo} onPress={CardapioScreen}>
+          <Text style={styles.textoBotaoo}>Entrar</Text>
+        </TouchableOpacity>
 
-          
-        </View>
-    );
+        <TouchableOpacity style={styles.botaoo} onPress={CardapioScreen}>
+          <Text style={styles.textoBotaoo}>Cadastrar</Text>
+        </TouchableOpacity>
+      </View>
+      
+        <Image source = {logo}  style= {styles.imagem} />
+    
+      <Text style={styles.titulo}>Escolha um cardápio:</Text>
+
+      <View style={styles.rowContainer}>
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigateToCardapio('Preço Geral Salgados')}>
+          <Image source={{ uri: renderImagem('Preço Geral Salgados') }} style={styles.imagemBotao} />
+          <Text style={styles.textoBotao}>Preço Geral Salgados</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigateToCardapio('Espetos de Ouro')}>
+          <Image source={{ uri: renderImagem('Espetos de Ouro') }} style={styles.imagemBotao} />
+          <Text style={styles.textoBotao}>Espetos de Ouro</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigateToCardapio('Preço Geral Alcoolicas')}>
+          <Image source={{ uri: renderImagem('Preço Geral Alcoolicas') }} style={styles.imagemBotao} />
+          <Text style={styles.textoBotao}>Preço Geral Alcoolicas</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigateToCardapio('Preço Geral Não Alcoolicos')}>
+          <Image source={{ uri: renderImagem('Preço Geral Não Alcoolicos') }} style={styles.imagemBotao} />
+          <Text style={styles.textoBotao}>Preço Geral Não Alcoolicos</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigateToCardapio('Tayro')}>
+          <Image source={{ uri: renderImagem('Tayro') }} style={styles.imagemBotao} />
+          <Text style={styles.textoBotao}>Tayro</Text>
+        </TouchableOpacity>
+      </View>
+     
+      {/* Adicione mais botões conforme necessário para outros tipos de cardápios */}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#22547E',
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    topContainer: {
-        backgroundColor: '#22547E',
-        justifyContent: 'center',
+        padding: 20,
+        backgroundColor:'#22547E',
+      },
+      rowContainer: {
         flexDirection: 'row',
-        paddingTop: 50,
-        width: '100%', // Ocupa toda a largura
-        height: 'auto', // Altura automática conforme o conteúdo
-    },    
-    botao: {
-        backgroundColor: '#FFDD00', // opcoes de barracas
-        paddingVertical: 8,
-        paddingHorizontal: 5,
-        borderRadius: 20,
-        color: '#22547E',
-        fontSize: 20,
-        fontWeight: 'bold',
-        alignItems: 'center',
-        marginTop: 10, // Ajuste a margem superior conforme necessário
-    },
-    texto: {
-        fontWeight: 'bold',
-        textAlign: 'center',
-        fontSize: 20,
-        color: '#000000',
-    },
-    imgdabarraca: {
-        width: 280,
-        height: 300,
-        borderRadius: 20,
-        alignItems: 'center',
-        marginBottom: 10,
-        marginTop: 50,
-    },
-    textobarracas: {
-        fontWeight: 'bold',
-        textAlign: 'center',
-        fontSize: 20,
-        color: '#FFDD00',
-    }, 
-    imagem: {
-        width: 400,
-        //resizeMode: 'cover',
-        height: 300,
-        backgroundColor: '#22547E'
-    },
+      },
+  titulo: {
+    margin:9,
+    textAlign:'center',
+    height: 90,
+    fontWeight: 'bold',
+    fontSize: 35,
+    color: '#FFFFFF'
+   
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '80%', // Ajuste conforme necessário
+  },
+  botao: {
+    backgroundColor: '#3498db',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    flex: 1, // Faz com que cada botão ocupe a mesma largura
+    margin: 5, // Espaçamento entre os botões
+  },
+  textoBotao: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10, // Ajuste conforme necessário
+  },
+  imagemBotao: {
+    width: 100,
+    height: 100,
+    borderRadius: 50, // Metade da largura e altura para torná-lo circular
+    marginBottom: 10,
+  },
+  imagem: {
+    width: 200, // Ajuste conforme necessário
+    height: 135, // Ajuste conforme necessário
+    resizeMode: 'center',
+    backgroundColor: '#22547E',
+  },
+  
+     botaoo:{
+
+        backgroundColor: '#FFDD00',
+        height:50,
+        justifyContent:'center',
+        margin:15,
+        borderRadius:10,
+        width: 300
+        
+        },
+        textoBotaoo:{
+            textAlign:'center',
+            color:'#22547E',
+            fontSize:18,
+            fontWeight:900
+            
+            },
+     
 });
 
-export default HomeScreen;
+export default CardapioScreen;
