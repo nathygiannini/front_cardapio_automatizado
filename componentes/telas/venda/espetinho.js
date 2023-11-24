@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import logo from '../imagens/logothermasamarela.jpg';
+import logo from '../../imagens/logothermasamarela.jpg';
 
 const espetinho = () => {
   const [quantidade, setQuantidade] = useState(0);
@@ -182,15 +182,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
      
   },
-  buttonTextAdd:{
-     flexDirection: 'row',
-    alignItems: 'center',
+  buttonTextAdd: {
     backgroundColor: '#F58220',
     borderRadius: 10,
     paddingHorizontal: 70,
     fontSize: 20,
     fontWeight: 'bold',
-  }
+    textAlign: 'center', // Centraliza o texto horizontalmente
+  },
 });
 
 export default espetinho;
