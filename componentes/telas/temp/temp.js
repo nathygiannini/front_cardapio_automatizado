@@ -17,6 +17,15 @@ function Temp({ navigation }) {
             <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
                 <Text>Menu</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Bebidas')}>
+                <Text>Bebidas</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Espetinho')}>
+                <Text>Espetinho</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('bebidas2')}>
+                <Text>Bebidas sem álcool</Text>
+            </TouchableOpacity>
         </View>
     );
 }

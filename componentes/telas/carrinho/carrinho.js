@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, FlatList, Image, StyleSheet, TouchableOpacity, onPress} from 'react-native';
-
+import logo from '../../imagens/logothermaslaranja.jpg';
 import cc_quente from '../../imagens/cachorro-quente.jpg';
 import pastel from '../../imagens/pastel.jpg';
 
@@ -38,7 +38,11 @@ const Carrinho = () => {
   };
 
   return (
+
     <View style={styles.container}>
+      <View style={styles.header}>
+      <Image source={logo} style={styles.imagem} />
+    </View>
       <FlatList
         data={cartItems}
         keyExtractor={item => item.id}
@@ -132,6 +136,16 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor:'#FFDD00'
   },
+  header:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+  },
+  imagem: {
+    width: 100,
+     resizeMode:'center',
+     height:100,
+     backgroundColor:'#F58220'
+     },
 
 });
 

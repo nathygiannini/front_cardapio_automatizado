@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import logo from '../../imagens/logothermas.jpg';
+import logo from '../imagens/logothermasamarela.jpg';
 
-const bebidas = () => {
+const sorvete = () => {
   const [quantidade, setQuantidade] = useState(0);
 
   const adicionar = () => {
@@ -16,32 +16,29 @@ const bebidas = () => {
     }
   }
 
-  const [bebidasItems, setbebidasItems] = useState([
-    { id: 1, name: 'BRAHMA', description: ' LATA 350ML', price: 'R$ 8,00',quantity: 0 },
-    { id: 4, name: 'HEINEKEN', description: ' LATA 350 ML', price: 'R$ 12,00',quantity: 0  },
-    { id: 10, name: 'SKOL', description: '  LATA 350 ML', price: 'R$8,00',quantity: 0  },
-    { id: 11, name: 'ORIGINAL', description: ' - LATA 350 ML', price: 'R$8,00 ',quantity: 0  },
-    { id: 12, name: 'DRINK NA TAÇA', description: '', price: 'R$ 35,00',quantity: 0  },
-    { id: 26, name: ' VELHO BARREIRO', description: ' DOSE', price: 'R$7,00',quantity: 0  },
-    { id: 297, name: ' GIN ', description: 'DOSE', price: 'R$13,00',quantity: 0  },
-    { id: 436, name: ' VODKA', description: 'DOSE', price: '13,00' ,quantity: 0 },
-    { id: 437, name: 'CAIPIRINHA DE CACHAÇA', description: '', price: 'R$ 15,00',quantity: 0  },
-    { id: 469, name: 'CAIPIRINHA VODKA', description: '', price: 'R$ 22,00' ,quantity: 0 },
-    { id: 508, name: 'GUARANÁ', description: ' LATA 350ML', price: 'R$ 7,00',quantity: 0  },
-    { id: 551, name: 'GUARANÁ', description: 'ARRAFA 200 ML', price: 'R$ 4,00',quantity: 0  },
-    { id: 552, name: 'CAIPICERVA BRAHMA', description: '', price: 'R$ 20,00',quantity: 0  },
-    { id: 557, name: 'CAIPICERVA SKOL', description: '', price: 'R$ 20,00',quantity: 0  },
-    { id: 561, name: 'GIN TÔNICA', description: ' GARRAFA 500ML', price: 'R$7,00' ,quantity: 0 },
+  const [sorveteItems, setSorveteItems] = useState([
+    { id: 2001, name: 'ESPETINHO DE CARNE', description: 'Unidade', price: 'R$ 12,00',quantity: 0 },
+    { id: 2002, name: 'ESPETINHO DE FRANGO', description: 'Unidade', price: 'R$11,00',quantity: 0  },
+    { id: 2003, name: ' ESPETINHO DE LINGUIÇA', description: 'Unidade', price: 'R$ 11,00',quantity: 0  },
+    { id: 2004, name: 'ESPETINHO DE CORAÇÃO', description: ' Unidade', price: 'R$11,00',quantity: 0  },
+    { id:2005, name: 'ESPETINHO DE KAFTA', description: ' Unidade', price: 'R$ 11,00',quantity: 0  },
+    { id: 2006 , name: 'SALGADO TROUXINHA DE FRANGO', description: ' Unidade', price: 'R$ 10,80',quantity: 0  },
+    { id: 3007, name: 'SALGADO ENROLADO DE PRESUNTO E QUEIJO', description: 'Unidade', price: 'R$ 10,80',quantity: 0 },
+    { id: 3008, name: 'SALGADO ESFIRRA DE CARNE', description: 'Unidade', price: 'R$ 10,80',quantity: 0 },
+    { id: 3009, name: 'ESPETINHO DE QUEIJO', description: 'Unidade', price: 'R$ 12,00',quantity: 0 },
+    { id: 3010, name: 'PÃO DE ALHO', description: 'Unidade', price: 'R$ 8,50',quantity: 0 },
+    { id: 3011, name: 'SALGADO HAMBURGUINHO', description: 'Unidade', price: 'R$ 10,80',quantity: 0 },
+    { id: 30012, name: 'SALGADO CACHORRO-QUENTE ASSADO', description: 'Unidade', price: 'R$10,80',quantity: 0 },
   ]);
 
   const updateQuantity = (id, newQuantity) => {
-    const updatedBebidasItems = bebidasItems.map(item => {
+    const updatedSorveteItems = sorveteItems.map(item => {
       if (item.id === id) {
         return { ...item, quantity: newQuantity };
       }
       return item;
     });
-    setBebidasItems(updatedBebidasItems);
+    setSorveteItems(updatedSorveteItems);
   };
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -50,12 +47,12 @@ const bebidas = () => {
     setSearchQuery(text);
   };
 
-  const filteredBebidasItems = bebidasItems.filter((item) =>
+  const filteredSorveteItems = sorveteItems.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const renderBebidasItem = ({ item }) => (
-    <View style={styles.bebidasItem}>
+  const renderSorveteItem = ({ item }) => (
+    <View style={styles.sorveteItem}>
       <Text style={styles.itemName}>{item.name}</Text>
       <Text style={styles.itemDescription}>{item.description}</Text>
       <Text style={styles.itemPrice}>{item.price}</Text>
@@ -78,7 +75,7 @@ const bebidas = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={logo} style={styles.imagem} />
-        <Text style={styles.textoBarraca}>ESPETINHO DE OURO</Text>
+        <Text style={styles.textoBarraca}>TAYRO</Text>
       </View>
 
       <SearchBar
@@ -90,8 +87,8 @@ const bebidas = () => {
       />
 
       <FlatList
-        data={filteredBebidasItems}
-        renderItem={renderBebidasItem}
+        data={filteredSorveteItems}
+        renderItem={renderSorveteItem}
         keyExtractor={(item) => item.id.toString()}
       />
 
@@ -196,4 +193,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default bebidas;
+export default sorvete;

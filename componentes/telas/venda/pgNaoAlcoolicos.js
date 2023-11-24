@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import logo from '../../imagens/logothermas.jpg';
+import logo from '../../imagens/logothermasamarela.jpg';
 
-const bebidas = () => {
+const bebidas2 = () => {
   const [quantidade, setQuantidade] = useState(0);
 
   const adicionar = () => {
@@ -16,7 +16,7 @@ const bebidas = () => {
     }
   }
 
-  const [bebidasItems, setbebidasItems] = useState([
+  const [bebidas2Items, setbebidas2Items] = useState([
     { id: 1, name: 'COCA-COLA', description: ' LATA 350ML', price: 'R$ 7.00',quantity: 0 },
     { id: 4, name: 'BRAHMA ZERO', description: ' LATA 350 ML', price: 'R$ 8.00',quantity: 0  },
     { id: 10, name: 'ÁGUA SEM GÁS', description: ' GARRAFA 510 ML', price: 'R$ 4.00',quantity: 0  },
@@ -35,13 +35,13 @@ const bebidas = () => {
   ]);
 
   const updateQuantity = (id, newQuantity) => {
-    const updatedBebidasItems = bebidasItems.map(item => {
+    const updatedBebidas2Items = bebidas2Items.map(item => {
       if (item.id === id) {
         return { ...item, quantity: newQuantity };
       }
       return item;
     });
-    setBebidasItems(updatedBebidasItems);
+    setBebidas2Items(updatedBebidas2Items);
   };
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -50,12 +50,12 @@ const bebidas = () => {
     setSearchQuery(text);
   };
 
-  const filteredBebidasItems = bebidasItems.filter((item) =>
+  const filteredBebidas2Items = bebidas2Items.filter((item) =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const renderBebidasItem = ({ item }) => (
-    <View style={styles.bebidasItem}>
+  const renderBebidas2Item = ({ item }) => (
+    <View style={styles.bebidas2Item}>
       <Text style={styles.itemName}>{item.name}</Text>
       <Text style={styles.itemDescription}>{item.description}</Text>
       <Text style={styles.itemPrice}>{item.price}</Text>
@@ -78,7 +78,7 @@ const bebidas = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={logo} style={styles.imagem} />
-        <Text style={styles.textoBarraca}>ESPETINHO DE OURO</Text>
+        <Text style={styles.textoBarraca}>BEBIDAS SEM ÁLCOOL</Text>
       </View>
 
       <SearchBar
@@ -90,8 +90,8 @@ const bebidas = () => {
       />
 
       <FlatList
-        data={filteredBebidasItems}
-        renderItem={renderBebidasItem}
+        data={filteredBebidas2Items}
+        renderItem={renderBebidas2Item}
         keyExtractor={(item) => item.id.toString()}
       />
 
@@ -196,4 +196,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default bebidas;
+export default bebidas2;

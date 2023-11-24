@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import logo from '../../imagens/logothermas.jpg';
+import logo from '../../imagens/logothermasamarela.jpg';
 
 const Menu = () => {
   const [quantidade, setQuantidade] = useState(0);
