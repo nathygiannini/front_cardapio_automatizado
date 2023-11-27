@@ -29,6 +29,9 @@ function Temp({ navigation }) {
             <TouchableOpacity onPress={() => navigation.navigate('sorvete')}>
                 <Text>Sorvetes Tayro</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('CadastroScreen')}>
+                <Text>CadastroScreen</Text>
+            </TouchableOpacity>
         </View>
     );
 }
