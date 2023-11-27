@@ -10,7 +10,7 @@ import Menu from '../telas/venda/venda';
 import Bebidas from '../telas/venda/Bebidas';
 import espetinho from '../telas/venda/espetinho';
 import bebidas2 from '../telas/venda/pgNaoAlcoolicos';
-
+import sorvete from '../telas/venda/Sorvete';
 
 
 
@@ -26,9 +26,10 @@ function Rotas() {
                 <Stack.Screen name="Carrinho" component={Carrinho} options={{ title: 'Carrinho' }} />
                 <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ title: 'Login' }} />
                 <Stack.Screen name="Menu" component={Menu} options={{ title: 'Menu' }} />
-                <Stack.Screen name="Bebidas" component={Bebidas} options={{ title: 'Bebidas' }} />
+                <Stack.Screen name="Bebidas" component={Bebidas} options={{ title: 'Bebidas álcoolicas' }} />
                 <Stack.Screen name='Espetinho' component={espetinho} options={{title:'Espetinho'}}/>
-                <Stack.Screen name='bebidas2' component={bebidas2} options={{title:'Bebidas sem álcool'}}/>
+                <Stack.Screen name='bebidas2' component={bebidas2} options={{title:'Bebidas não álcoolicas'}}/>
+                <Stack.Screen name='sorvete' component={sorvete} options={{title:'Sorvete Tayro'}}/>
               
                 
               
