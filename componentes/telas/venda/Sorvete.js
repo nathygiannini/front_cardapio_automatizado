@@ -17,18 +17,13 @@ const sorvete = () => {
   }
 
   const [sorveteItems, setSorveteItems] = useState([
-    { id: 2001, name: 'ESPETINHO DE CARNE', description: 'Unidade', price: 'R$ 12,00',quantity: 0 },
-    { id: 2002, name: 'ESPETINHO DE FRANGO', description: 'Unidade', price: 'R$11,00',quantity: 0  },
-    { id: 2003, name: ' ESPETINHO DE LINGUIÇA', description: 'Unidade', price: 'R$ 11,00',quantity: 0  },
-    { id: 2004, name: 'ESPETINHO DE CORAÇÃO', description: ' Unidade', price: 'R$11,00',quantity: 0  },
-    { id:2005, name: 'ESPETINHO DE KAFTA', description: ' Unidade', price: 'R$ 11,00',quantity: 0  },
-    { id: 2006 , name: 'SALGADO TROUXINHA DE FRANGO', description: ' Unidade', price: 'R$ 10,80',quantity: 0  },
-    { id: 3007, name: 'SALGADO ENROLADO DE PRESUNTO E QUEIJO', description: 'Unidade', price: 'R$ 10,80',quantity: 0 },
-    { id: 3008, name: 'SALGADO ESFIRRA DE CARNE', description: 'Unidade', price: 'R$ 10,80',quantity: 0 },
-    { id: 3009, name: 'ESPETINHO DE QUEIJO', description: 'Unidade', price: 'R$ 12,00',quantity: 0 },
-    { id: 3010, name: 'PÃO DE ALHO', description: 'Unidade', price: 'R$ 8,50',quantity: 0 },
-    { id: 3011, name: 'SALGADO HAMBURGUINHO', description: 'Unidade', price: 'R$ 10,80',quantity: 0 },
-    { id: 30012, name: 'SALGADO CACHORRO-QUENTE ASSADO', description: 'Unidade', price: 'R$10,80',quantity: 0 },
+    { id: 3001, name: 'CASQUINHA', description: 'Unidade', price: 'R$ 8.00',quantity: 0 },
+    { id: 3002, name: 'CASCÃO', description: 'Unidade', price: 'R$ 10.00',quantity: 0 },
+    { id: 3003, name: 'SUNDAY', description: 'Unidade', price: 'R$ 12.00',quantity: 0 },
+    { id: 3004, name: 'MILK-SHAKE', description: 'Pequeno-330 ml', price: 'R$ 20.00',quantity: 0 },
+    { id: 3005, name: 'MILK-SHAKE', description: 'Grande-440 ml', price: 'R$ 20.00',quantity: 0 },
+    { id: 3006, name: 'COBERTURA', description: 'Adicional', price: 'R$ 2.00',quantity: 0 },
+   
   ]);
 
   const updateQuantity = (id, newQuantity) => {

@@ -13,6 +13,21 @@ const CardapioScreen = ({ navigation }) => {
   const navigateToCardapio = (tipoCardapio) => {
     // Adicione a navegação para as telas de cardápio específicas
     // Por exemplo, navigation.navigate('CardapioSalgados') para o cardápio de salgados
+    switch (tipoCardapio) {
+      case 'Espetos de Ouro':
+        navigation.navigate('Espetinho');
+      case 'Preço Geral Alcoolicas':
+        navigation.navigate('Bebidas');        
+      //case 'Preço Geral Alcoolicas':
+      //  return imgAlcoolicas;
+      //  case 'Preço Geral Não Alcoolicos':
+      //   return imgNalcool;
+      //   case 'Tayro':
+     //    return imgSorvetes;
+      // Adicione mais casos conforme necessário para outros tipos de cardápios
+    //  default:
+     //   return null;
+    }
     console.log(`Acessando cardápio de ${tipoCardapio}`);
   };
 
@@ -54,20 +69,23 @@ const CardapioScreen = ({ navigation }) => {
         <TouchableOpacity
           style={styles.botao}
           onPress={() => navigateToCardapio('Preço Geral Salgados')}>
+          
           <Image source={{ uri: renderImagem('Preço Geral Salgados') }} style={styles.imagemBotao} />
           <Text style={styles.textoBotao}>Preço Geral Salgados</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => navigateToCardapio('Espetos de Ouro')}>
+          //onPress={() => navigateToCardapio('Espetos de Ouro')}>
+            onPress={() => navigation.navigate('Espetinho')}>
           <Image source={{ uri: renderImagem('Espetos de Ouro') }} style={styles.imagemBotao} />
           <Text style={styles.textoBotao}>Espetos de Ouro</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => navigateToCardapio('Preço Geral Alcoolicas')}>
+          //onPress={() => navigateToCardapio('Preço Geral Alcoolicas')}>
+            onPress={() => navigation.navigate('Bebidas')}>
           <Image source={{ uri: renderImagem('Preço Geral Alcoolicas') }} style={styles.imagemBotao} />
           <Text style={styles.textoBotao}>Preço Geral Alcoolicas</Text>
         </TouchableOpacity>

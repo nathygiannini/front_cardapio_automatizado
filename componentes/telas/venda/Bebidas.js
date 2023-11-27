@@ -96,8 +96,9 @@ const bebidas = () => {
       />
 
       <View>
-      <TouchableOpacity onPress={adicionar}>
-          <Text style={styles.buttonTextAdd}>CONTINUAR</Text>
+        <TouchableOpacity 
+          onPress={() => navigation.navigate('Carrinho')}>
+          <Text style={styles.buttonTextAdd}>CONTINUAR</Text>          
         </TouchableOpacity>
       </View>
     </View>
