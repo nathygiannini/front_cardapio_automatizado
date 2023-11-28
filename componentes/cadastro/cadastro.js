@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-import logo from '../../componentes/imagens/logothermaslaranja.jpg';
+import logo from '../../componentes/imagens/logothermas.jpg';
 
 
 const CadastroScreen = () => {

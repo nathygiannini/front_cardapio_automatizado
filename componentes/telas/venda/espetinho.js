@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 import logo from '../../imagens/logothermasamarela.jpg';
 
 const espetinho = () => {
@@ -15,6 +16,8 @@ const espetinho = () => {
       setQuantidade(quantidade - 1);
     }
   }
+  const navigation = useNavigation();
+
 
   const [espetinhoItems, setEspetinhoItems] = useState([
     { id: 2001, name: 'ESPETINHO DE CARNE', description: 'Unidade', price: 'R$ 12,00',quantity: 0 },
@@ -93,10 +96,9 @@ const espetinho = () => {
       />
 
       <View>
-      <TouchableOpacity 
-          onPress={() => navigation.navigate('Carrinho')}>
-          <Text style={styles.buttonTextAdd}>CONTINUAR</Text>          
-        </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Carrinho')}>
+  <Text style={styles.buttonTextAdd}>CONTINUAR</Text>
+</TouchableOpacity>
 
       </View>
     </View>

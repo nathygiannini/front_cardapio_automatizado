@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, Button, TextInput, FlatList, Image, StyleSheet, TouchableOpacity, onPress} from 'react-native';
 import logo from '../../imagens/logothermaslaranja.jpg';
-import cc_quente from '../../imagens/cachorro-quente.jpg';
-import pastel from '../../imagens/pastel.jpg';
+
 
 
 const Carrinho = () => {
   const [cartItems, setCartItems] = useState([
    
     // Adicione mais produtos aqui
-  ]);
+  ]); 
 
   const updateQuantity = (id, newQuantity) => {
     const updatedCartItems = cartItems.map(item => {
