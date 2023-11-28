@@ -4,7 +4,6 @@ import 'react-native-gesture-handler';
 
 import Rotas from './componentes/navegacao/rotas';
 
-
 export default function App() {
   return (
     // <View style={styles.container}>
