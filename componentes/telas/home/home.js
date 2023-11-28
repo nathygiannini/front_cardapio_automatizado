@@ -2,11 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import logo from '../../imagens/logothermas.jpg'
 
-import imgAlcoolicas from '../../imagens/alcoolicas.avif';
+import imgAlcoolicas from '../../imagens/alcool.webp';
 import imgEspetinho from '../../imagens/espetinhos.jpg';
 import imgNalcool from '../../imagens/refrigerantes.jpg';
 import imgSalgados from '../../imagens/salgados.webp';
 import imgSorvetes from '../../imagens/sorvete.webp';
+import CadastroScreen from '../../cadastro/cadastro';
 
 
 const CardapioScreen = ({ navigation }) => {
@@ -52,11 +53,11 @@ const CardapioScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.rowContainer}>
-        <TouchableOpacity style={styles.botaoo} onPress={CardapioScreen}>
+        <TouchableOpacity style={styles.botaoo} onPress={() => navigation.navigate('CadastroScreen')}>
           <Text style={styles.textoBotaoo}>Entrar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoo} onPress={CardapioScreen}>
+        <TouchableOpacity style={styles.botaoo} onPress={CadastroScreen}>
           <Text style={styles.textoBotaoo}>Cadastrar</Text>
         </TouchableOpacity>
       </View>
@@ -68,7 +69,7 @@ const CardapioScreen = ({ navigation }) => {
       <View style={styles.rowContainer}>
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => navigateToCardapio('Preço Geral Salgados')}>
+          onPress={() => navigation.navigate('Menu')}>
           
           <Image source={{ uri: renderImagem('Preço Geral Salgados') }} style={styles.imagemBotao} />
           <Text style={styles.textoBotao}>Preço Geral Salgados</Text>
@@ -84,22 +85,22 @@ const CardapioScreen = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.botao}
-          //onPress={() => navigateToCardapio('Preço Geral Alcoolicas')}>
-            onPress={() => navigation.navigate('Bebidas')}>
-          <Image source={{ uri: renderImagem('Preço Geral Alcoolicas') }} style={styles.imagemBotao} />
-          <Text style={styles.textoBotao}>Preço Geral Alcoolicas</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.botao}
-          onPress={() => navigateToCardapio('Preço Geral Não Alcoolicos')}>
+          //onPress={() => navigateToCardapio('Espetos de Ouro')}>
+            onPress={() => navigation.navigate('bebidas2')}>
           <Image source={{ uri: renderImagem('Preço Geral Não Alcoolicos') }} style={styles.imagemBotao} />
-          <Text style={styles.textoBotao}>Preço Geral Não Alcoolicos</Text>
+          <Text style={styles.textoBotao}>Bebidas não alcoolicas</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => navigateToCardapio('Tayro')}>
+          onPress={() => navigation.navigate('Bebidas')}>
+          <Image source={{ uri: renderImagem('Preço Geral Alcoolicas') }} style={styles.imagemBotao} />
+          <Text style={styles.textoBotao}>Bebidas álcoolicas</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigation.navigate('sorvete')}>
           <Image source={{ uri: renderImagem('Tayro') }} style={styles.imagemBotao} />
           <Text style={styles.textoBotao}>Tayro</Text>
         </TouchableOpacity>

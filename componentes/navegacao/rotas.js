@@ -32,6 +32,10 @@ function Rotas() {
                 <Stack.Screen name='bebidas2' component={bebidas2} options={{title:'Bebidas não álcoolicas'}}/>
                 <Stack.Screen name='sorvete' component={sorvete} options={{title:'Sorvete Tayro'}}/>
                 <Stack.Screen name='CadastroScreen' component={CadastroScreen} options={{title:'Cadastro'}}/>
+               
+              
+              
+                
               
                 
               
