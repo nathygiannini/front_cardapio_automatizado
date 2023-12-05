@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 import logo from '../../imagens/logothermas.jpg';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        // Aqui você pode adicionar a lógica de autenticação
-        // Por exemplo, verificar se o usuário e senha são válidos
+        // Verifica se o usuário e a senha são válidos
         if (username === 'usuario' && password === 'senha') {
             // Lógica de login bem-sucedida
             alert('Login bem-sucedido!');
+            // Navega para a tela 'home2'
+            navigation.navigate('home2');
         } else {
             // Lógica de login falhou
             alert('Login falhou. Verifique suas credenciais.');
@@ -21,33 +24,32 @@ const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
+            <View style={styles.rowContainer}>
+                <Image source={logo} style={styles.imagem} />
 
-            <Image source={logo} style={styles.imagem} />
+                <Text style={styles.title}>FAÇA SEU LOGIN:</Text>
+                <TextInput
+                    placeholder="Nome de usuário"
+                    style={styles.input}
+                    onChangeText={text => setUsername(text)}
+                    value={username}
+                />
+                <TextInput
+                    placeholder="Senha"
+                    style={styles.input}
+                    onChangeText={text => setPassword(text)}
+                    value={password}
+                    secureTextEntry
+                />
 
-
-            <Text style={styles.title}>FAÇA SEU LOGIN:</Text>
-            <TextInput
-                placeholder="Nome de usuário"
-                style={styles.input}
-                onChangeText={text => setUsername(text)}
-                value={username}
-            />
-            <TextInput
-                placeholder="Senha"
-                style={styles.input}
-                onChangeText={text => setPassword(text)}
-                value={password}
-                secureTextEntry
-            />
-
-            <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('home2')}>
-
-                <Text style={styles.textoBotao}> Entrar </Text>
-
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.botao} onPress={handleLogin}>
+                    <Text style={styles.textoBotao}>Entrar</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
+
 
 const styles = StyleSheet.create({
     imagem: {

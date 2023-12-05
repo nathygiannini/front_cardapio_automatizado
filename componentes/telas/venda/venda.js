@@ -3,11 +3,12 @@ import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react
 import { SearchBar } from 'react-native-elements';
 import logo from '../../imagens/logothermasamarela.jpg';
 
-const Menu = () => {
+const Menu = ({ navigation }) => {
   const [quantidade, setQuantidade] = useState(0);
 
   const adicionar = () => {
     setQuantidade(quantidade + 1);
+    navigation.navigate('Carrinho');
   }
 
   const remover = () => {

@@ -56,8 +56,8 @@ const CardapioScreen = ({ navigation }) => {
         <Image source = {logo}  style= {styles.imagem} />
     
       <Text style={styles.titulo}>Escolha um cardápio:</Text>
-
       <View style={styles.rowContainer}>
+
         <TouchableOpacity
           style={styles.botao}
           onPress={() => navigation.navigate('Menu')}>
@@ -95,6 +95,8 @@ const CardapioScreen = ({ navigation }) => {
           <Image source={{ uri: renderImagem('Tayro') }} style={styles.imagemBotao} />
           <Text style={styles.textoBotao}>Tayro</Text>
         </TouchableOpacity>
+
+        
       </View>
      
       {/* Adicione mais botões conforme necessário para outros tipos de cardápios */}
