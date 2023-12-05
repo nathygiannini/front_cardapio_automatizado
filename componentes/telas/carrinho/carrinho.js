@@ -17,7 +17,7 @@ const Carrinho = ({ navigation }) => {
     });
     setCartItems(updatedCartItems);
   };
-
+ 
   const clearCart = () => {
     const clearedCartItems = cartItems.map(item => ({ ...item, quantity: 0 }));
     setCartItems(clearedCartItems);
@@ -73,7 +73,7 @@ const Carrinho = ({ navigation }) => {
        <TouchableOpacity style={styles.butfinal} onPress={clearCart}>
         <Text>Limpar Carrinho</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.butfinal} onPress={()=>{}}>
+      <TouchableOpacity style={styles.butfinal} onPress={() => navigation.navigate('confirmacao')}>
         <Text>Finalizar Compra</Text>
       </TouchableOpacity>
     </View>

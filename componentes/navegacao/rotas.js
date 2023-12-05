@@ -12,8 +12,8 @@ import espetinho from '../telas/venda/espetinho';
 import bebidas2 from '../telas/venda/pgNaoAlcoolicos';
 import sorvete from '../telas/venda/Sorvete';
 import CadastroScreen from '../cadastro/cadastro';
-import home2 from '../telas/home/home2'
-
+import home2 from '../telas/home/home2';
+import confirmacao from '../telas/venda/confirmacao'
 
 
 
@@ -33,7 +33,8 @@ function Rotas() {
                 <Stack.Screen name='bebidas2' component={bebidas2} options={{title:'Bebidas não álcoolicas'}}/>
                 <Stack.Screen name='sorvete' component={sorvete} options={{title:'Sorvete Tayro'}}/>
                 <Stack.Screen name='CadastroScreen' component={CadastroScreen} options={{title:'Cadastro'}}/>
-                <Stack.Screen name='home2' component={home2} options={{title:'home2'}}/>                
+                <Stack.Screen name='home2' component={home2} options={{title:'home2'}}/>  
+                <Stack.Screen name='confirmacao' component={confirmacao} options={{title:'confirmacao'}}/>                
             </Stack.Navigator>
         </NavigationContainer>
     );

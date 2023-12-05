@@ -9,7 +9,7 @@ const Menu = ({ navigation }) => {
   const [quantidade, setQuantidade] = useState(0);
 
   const adicionar = () => {
-    setQuantidade(quantidade + 1);
+    setQuantidade(quantidade + 1); 
     navigation.navigate('Carrinho');
   }
 

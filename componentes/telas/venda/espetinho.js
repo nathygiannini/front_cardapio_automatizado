@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import logo from '../../imagens/logothermasamarela.jpg';
+import { useCartContext } from '../../context/CartContext';
 
 const espetinho = ({ navigation }) => {
+  const { state, dispatch } = useCartContext();
   const [quantidade, setQuantidade] = useState(0);
 
   const adicionar = () => {
-    setQuantidade(quantidade + 1);
+    setQuantidade(quantidade + 1); 
+    navigation.navigate('Carrinho');
   }
 
   const remover = () => {
@@ -15,6 +18,10 @@ const espetinho = ({ navigation }) => {
       setQuantidade(quantidade - 1);
     }
   }
+  const addToCart = (item) => {
+    // Dispatch uma ação para adicionar um item ao carrinho
+    dispatch({ type: 'ADD_TO_CART', payload: item });
+  };
 
   const [espetinhoItems, setEspetinhoItems] = useState([
     { id: 2001, name: 'ESPETINHO DE CARNE', description: 'Unidade', price: 'R$ 12,00',quantity: 0 },
@@ -93,13 +100,14 @@ const espetinho = ({ navigation }) => {
       />
 
       <View>
-      <TouchableOpacity 
-          onPress={() => navigation.navigate('Carrinho')}>
-          <Text style={styles.buttonTextAdd}>CONTINUAR</Text>          
+      <View>
+      <TouchableOpacity onPress={adicionar}>
+          <Text style={styles.buttonTextAdd} onClick={() => addToCart(menuItems)}>CONTINUAR</Text>          
         </TouchableOpacity>
-
       </View>
     </View>
+      </View>
+ 
   );
 }; 
 
