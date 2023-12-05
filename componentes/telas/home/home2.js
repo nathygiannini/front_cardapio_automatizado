@@ -51,15 +51,7 @@ const CardapioScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.rowContainer}>
-        <TouchableOpacity style={styles.botaoo} onPress={() => navigation.navigate('LoginScreen')}>
-          <Text style={styles.textoBotaoo}>Entrar</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoo}  onPress={() => navigation.navigate('CadastroScreen')}>
-          <Text style={styles.textoBotaoo}>Cadastrar</Text> 
-        </TouchableOpacity>
-      </View>
       
         <Image source = {logo}  style= {styles.imagem} />
     

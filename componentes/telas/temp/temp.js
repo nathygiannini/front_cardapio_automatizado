@@ -32,6 +32,9 @@ function Temp({ navigation }) {
             <TouchableOpacity onPress={() => navigation.navigate('CadastroScreen')}>
                 <Text>CadastroScreen</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('home2')}>
+                <Text>Home2</Text>
+            </TouchableOpacity>
         </View>
     );
 }

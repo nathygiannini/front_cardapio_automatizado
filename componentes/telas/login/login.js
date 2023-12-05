@@ -40,7 +40,7 @@ const LoginScreen = () => {
                 secureTextEntry
             />
 
-            <TouchableOpacity style={styles.botao} onPress={LoginScreen}>
+            <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('home2')}>
 
                 <Text style={styles.textoBotao}> Entrar </Text>
 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#22547E'
     },
     container: {
-        flex: 1,
+        flex: 1, 
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
