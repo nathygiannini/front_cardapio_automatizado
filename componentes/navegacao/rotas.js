@@ -23,7 +23,7 @@ function Rotas() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Telas" component={Temp} options={{ title: 'Acesso a telas' }} />
+                {/* <Stack.Screen name="Telas" component={Temp} options={{ title: 'Acesso a telas' }} /> */}
                 <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ title: 'Home' }} /> 
                 <Stack.Screen name="Carrinho" component={Carrinho} options={{ title: 'Carrinho' }} />
                 <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ title: 'Login' }} />

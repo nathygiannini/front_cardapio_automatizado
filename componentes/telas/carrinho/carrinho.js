@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Button, TextInput, FlatList, Image, StyleSheet, TouchableOpacity, onPress} from 'react-native';
 import logo from '../../imagens/logothermaslaranja.jpg';
-
+import { useCartContext } from '../../context/CartContext';
 
 const Carrinho = ({ navigation }) => {
-  const [cartItems, setCartItems] = useState([
-   
-    // Adicione mais produtos aqui
-  ]);
+  const { state, dispatch } = useCartContext();
+  // console.log(state.cartItems);
+  const [cartItems, setCartItems] = useState(state.cartItems[0]);
 
   const updateQuantity = (id, newQuantity) => {
     const updatedCartItems = cartItems.map(item => {
@@ -32,6 +31,18 @@ const Carrinho = ({ navigation }) => {
     const total = getTotalPrice();
     alert(`Total da Compra: R$ ${total.toFixed(2)}`);
   };
+
+
+  useEffect(() => {    
+    let temp = [];
+    cartItems.map((item, index) => {
+      if (item.quantity > 0) {
+        temp.push(item);
+      }      
+    }      
+    )       
+    setCartItems(temp)
+  }, []); 
 
   return (
 

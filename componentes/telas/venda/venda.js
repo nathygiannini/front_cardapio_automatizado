@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import logo from '../../imagens/logothermasamarela.jpg';
+import { useCartContext } from '../../context/CartContext';
 
 const Menu = ({ navigation }) => {
+  const { state, dispatch } = useCartContext();
   const [quantidade, setQuantidade] = useState(0);
 
   const adicionar = () => {
@@ -17,22 +19,20 @@ const Menu = ({ navigation }) => {
     }
   }
 
+  const addToCart = (item) => {
+    // Dispatch uma ação para adicionar um item ao carrinho
+    dispatch({ type: 'ADD_TO_CART', payload: item });
+  };
+
   const [menuItems, setMenuItems] = useState([
-    { id: 1, name: 'COCA-COLA', description: ' LATA 350ML', price: 'R$ 7.00',quantity: 0 },
-    { id: 4, name: 'BRAHMA ZERO', description: ' LATA 350 ML', price: 'R$ 8.00',quantity: 0  },
-    { id: 10, name: 'ÁGUA SEM GÁS', description: ' GARRAFA 510 ML', price: 'R$ 4.00',quantity: 0  },
-    { id: 11, name: 'ÁGUA COM GÁS', description: ' GARRAFA 510 ML', price: 'R$4.00 ',quantity: 0  },
-    { id: 12, name: 'ÁGUA TÔNICA', description: ' LATA 350ML', price: 'R$ 7.00',quantity: 0  },
-    { id: 26, name: 'CHÁ MATE', description: ' GARRAFA', price: 'R$ 6.00',quantity: 0  },
-    { id: 297, name: 'Polenta Frita', description: 'Porção', price: 'R$ 19.00',quantity: 0  },
-    { id: 436, name: 'Risólis', description: 'Presunto e Queijo', price: 'R$9.80' ,quantity: 0 },
-    { id: 437, name: 'Fogaça', description: 'Calabresa', price: 'R$ 9.80',quantity: 0  },
-    { id: 469, name: 'Batata Frita', description: 'Porção', price: 'R$ 25.00' ,quantity: 0 },
-    { id: 508, name: 'Bolo', description: 'Pedaço', price: 'R$ 1.50',quantity: 0  },
-    { id: 551, name: 'Raquete de Frango', description: 'Porção', price: 'R$ 35.00',quantity: 0  },
-    { id: 552, name: 'Kibe', description: 'Porção', price: 'R$ 30.00',quantity: 0  },
-    { id: 557, name: 'Tempurá de Frango', description: 'Porção', price: 'R$ 30.00',quantity: 0  },
-    { id: 561, name: 'Tirinha de Frango', description: 'Porção', price: 'R$ 30.00' ,quantity: 0 },
+    { id: 1, name: 'COCA-COLA', description: ' LATA 350ML', price: 7.00,quantity: 0 },
+    { id: 4, name: 'BRAHMA ZERO', description: ' LATA 350 ML', price: 8.00,quantity: 0  },
+    { id: 10, name: 'ÁGUA SEM GÁS', description: ' GARRAFA 510 ML', price: 4.00,quantity: 0  },
+    { id: 11, name: 'ÁGUA COM GÁS', description: ' GARRAFA 510 ML', price: 4.00,quantity: 0  },
+    { id: 12, name: 'ÁGUA TÔNICA', description: ' LATA 350ML', price: 7.00,quantity: 0  },
+    { id: 26, name: 'CHÁ MATE', description: ' GARRAFA', price: 6.00,quantity: 0  },
+    { id: 297, name: 'Polenta Frita', description: 'Porção', price: 19.00,quantity: 0  },
+    { id: 436, name: 'Risólis', description: 'Presunto e Queijo', price: 9.80 ,quantity: 0 },
   ]);
 
   const updateQuantity = (id, newQuantity) => {
@@ -98,7 +98,7 @@ const Menu = ({ navigation }) => {
 
       <View>
       <TouchableOpacity onPress={adicionar}>
-          <Text style={styles.buttonTextAdd}>CONTINUAR</Text>
+          <Text style={styles.buttonTextAdd} onClick={() => addToCart(menuItems)}>CONTINUAR</Text>          
         </TouchableOpacity>
       </View>
     </View>
